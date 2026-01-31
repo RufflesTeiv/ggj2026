@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bnh1c81cukhh8" path="res://scenes_and_controllers/player_controller.gd" id="1_6aecc"]
 [ext_resource type="Texture2D" uid="uid://on57hhph28en" path="res://assets/sprites/white_pixel.png" id="1_ubsf2"]
+[ext_resource type="Script" uid="uid://7beuv6areirk" path="res://addons/area_of_sight_2d/area_of_sight_agent_2d.gd" id="3_8faqa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6aecc"]
 radius = 56.0
 height = 112.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1353804991]
+collision_mask = 3
+input_pickable = true
 motion_mode = 1
 script = ExtResource("1_6aecc")
 
@@ -19,3 +22,9 @@ offset = Vector2(0, -0.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1352406043]
 position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_6aecc")
+
+[node name="AreaOfSightAgent2D" type="Area2D" parent="." unique_id=557946667 node_paths=PackedStringArray("parent_node")]
+script = ExtResource("3_8faqa")
+parent_node = NodePath("..")
+radius = 58
+metadata/_custom_type_script = "uid://7beuv6areirk"
