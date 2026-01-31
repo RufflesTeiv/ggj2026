@@ -45,7 +45,7 @@ shape = SubResource("RectangleShape2D_apai5")
 [node name="Camera2D" type="Camera2D" parent="Camera" unique_id=633053321]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(704, 724)
+position = Vector2(704, 624)
 process_callback = 0
 editor_draw_limits = true
 
@@ -56,14 +56,15 @@ script = ExtResource("3_jhph2")
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera" unique_id=671960943 node_paths=PackedStringArray("follow_targets")]
 top_level = true
-position = Vector2(704, 724)
+position = Vector2(704, 624)
 script = ExtResource("4_lnsng")
 follow_mode = 3
 follow_targets = [NodePath("../../Player"), NodePath("../../Player2")]
 tween_resource = SubResource("Resource_8sxnc")
+follow_offset = Vector2(0, -100)
 follow_damping = true
 auto_zoom = true
 auto_zoom_min = 0.5
 auto_zoom_max = 1.0
-auto_zoom_margin = Vector4(200, 200, 200, 200)
+auto_zoom_margin = Vector4(400, 400, 400, 400)
 draw_limits = true
