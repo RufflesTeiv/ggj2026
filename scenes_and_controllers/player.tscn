@@ -39,6 +39,7 @@ metadata/_custom_type_script = "uid://7beuv6areirk"
 unique_name_in_owner = true
 stream = ExtResource("4_a0aha")
 volume_db = 15.0
+
 [node name="InteractArea" type="Area2D" parent="." unique_id=1074751785]
 unique_name_in_owner = true
 

@@ -19,6 +19,7 @@ class_name PlayerController
 
 #region Variables
 var focused_item : PocketItemController
+var items_pocketed : Array[PocketItem]
 #endregion
 
 #region Computed properties
@@ -38,6 +39,7 @@ func _physics_process(_delta):
 	_move(_delta)
 
 func _input(_event: InputEvent):
+	_check_pickup(_event)
 	_has_started_running(_event)
 	
 #func _exit_tree(): pass
@@ -50,6 +52,12 @@ func _input(_event: InputEvent):
 #endregion
 
 #region Private functions
+func _check_pickup(input : InputEvent):
+	if !Input.is_action_just_pressed("pick_up"): return
+	if !focused_item: return
+	items_pocketed.append(focused_item.resource)
+	focused_item.pick_up()
+	
 func _get_max_speed() -> float:
 	if Input.is_action_pressed("run"):
 		return max_speed_running

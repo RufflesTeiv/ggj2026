@@ -50,6 +50,10 @@ func _ready():
 #region Public functions
 func focus():
 	dotted_outline.show()
+	
+func pick_up():
+	unfocus()
+	queue_free()
 
 func unfocus():
 	dotted_outline.hide()
