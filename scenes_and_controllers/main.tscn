@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://50b3rbnx6nvv"]
+
+[ext_resource type="Texture2D" uid="uid://on57hhph28en" path="res://assets/sprites/white_pixel.png" id="1_apai5"]
+[ext_resource type="PackedScene" uid="uid://druptq8xsxyct" path="res://scenes_and_controllers/player.tscn" id="2_v4vid"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apai5"]
+size = Vector2(240, 580)
+
+[node name="Main" type="Node2D" unique_id=1681873017]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=779129374]
+modulate = Color(0.40069774, 0.40069774, 0.40069768, 1)
+scale = Vector2(1920, 1080)
+texture = ExtResource("1_apai5")
+centered = false
+
+[node name="Player" parent="." unique_id=857795947 instance=ExtResource("2_v4vid")]
+position = Vector2(559, 710)
+max_speed_default = 500.0
+max_speed_running = 750.0
+acceleration = 100.0
+friction = 100.0
+
+[node name="CollisionTest" type="Node2D" parent="." unique_id=2106170654]
+position = Vector2(1553, 478)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CollisionTest" unique_id=1421658607]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionTest/StaticBody2D" unique_id=1364229012]
+shape = SubResource("RectangleShape2D_apai5")
