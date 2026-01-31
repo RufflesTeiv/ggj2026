@@ -54,7 +54,6 @@ func _on_sight_body_entered(body:Node2D):
 	var player := body as PlayerController
 	if !(player in players_on_sight):
 		players_on_sight.append(player)
-	print(players_on_sight)
 	
 func _on_sight_body_exited(body:Node2D):
 	if !(body is PlayerController):
@@ -62,7 +61,6 @@ func _on_sight_body_exited(body:Node2D):
 	var player := body as PlayerController
 	if player in players_on_sight:
 		players_on_sight.remove_at(players_on_sight.find(player))
-	print(players_on_sight)
 	
 func _rotate_sight(delta:float):
 	area_of_sight.rotate(deg_to_rad(delta*rotate_speed))
