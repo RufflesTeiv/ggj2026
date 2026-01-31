@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bnh1c81cukhh8" path="res://scenes_and_controllers/player_controller.gd" id="1_6aecc"]
 [ext_resource type="Texture2D" uid="uid://on57hhph28en" path="res://assets/sprites/white_pixel.png" id="1_ubsf2"]
 [ext_resource type="Script" uid="uid://7beuv6areirk" path="res://addons/area_of_sight_2d/area_of_sight_agent_2d.gd" id="3_8faqa"]
+[ext_resource type="AudioStream" uid="uid://b0u1xufgyc4h6" path="res://assets/audio/woosh.mp3" id="4_a0aha"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6aecc"]
 radius = 56.0
@@ -28,3 +29,10 @@ script = ExtResource("3_8faqa")
 parent_node = NodePath("..")
 radius = 58
 metadata/_custom_type_script = "uid://7beuv6areirk"
+
+[node name="AudioPlayers" type="Node" parent="." unique_id=1506986787]
+
+[node name="DashAudioPlayer" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=1303312287]
+unique_name_in_owner = true
+stream = ExtResource("4_a0aha")
+volume_db = 15.0

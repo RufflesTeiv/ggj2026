@@ -9,6 +9,8 @@ class_name PlayerController
 @export var max_speed_running := 150.0
 @export var acceleration := 50.0
 @export var friction := 80.0
+@onready var dash_audio_player: AudioStreamPlayer = %DashAudioPlayer
+
 #endregion
 
 #region Signals
@@ -27,7 +29,8 @@ class_name PlayerController
 #func _process(_delta): pass
 func _physics_process(_delta):
 	_move(_delta)
-#func _input(_event: InputEvent): pass
+func _input(_event: InputEvent):
+	_has_started_running(_event)
 #func _exit_tree(): pass
 #endregion
 
@@ -42,7 +45,12 @@ func _get_max_speed() -> float:
 	if Input.is_action_pressed("run"):
 		return max_speed_running
 	return max_speed_default
-	
+
+func _has_started_running(event: InputEvent):
+	if Input.is_action_just_pressed("run"):
+		dash_audio_player.pitch_scale = randf_range(0.9, 1.15)
+		dash_audio_player.play()
+
 func _move(delta:float):
 	var input := Vector2(
 		Input.get_axis("move_left","move_right"),
