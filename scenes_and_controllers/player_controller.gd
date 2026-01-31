@@ -5,6 +5,7 @@ class_name PlayerController
 #endregion
 
 #region Parameters (consts and exportvars)
+@onready var interact_area: Area2D = %InteractArea
 @export var max_speed_default := 100.0
 @export var max_speed_running := 150.0
 @export var acceleration := 50.0
@@ -15,6 +16,7 @@ class_name PlayerController
 #endregion
 
 #region Variables
+var focused_item : PocketItemController
 #endregion
 
 #region Computed properties
@@ -23,10 +25,16 @@ class_name PlayerController
 #region Default functions
 #func _init(): pass
 #func _enter_tree(): pass
-#func _ready(): pass
+
+func _ready():
+	interact_area.area_entered.connect(_on_area_entered)
+	interact_area.area_exited.connect(_on_area_exited)
+	
 #func _process(_delta): pass
+
 func _physics_process(_delta):
 	_move(_delta)
+
 #func _input(_event: InputEvent): pass
 #func _exit_tree(): pass
 #endregion
@@ -50,8 +58,22 @@ func _move(delta:float):
 	).normalized()
 	var lerp_weight := delta * (acceleration if input else friction)
 	velocity = lerp(velocity, input*_get_max_speed(), lerp_weight)
-	
 	move_and_slide()
+	
+func _on_area_entered(area : Area2D):
+	if !(area is PocketItemController):
+		return
+	var pocket_item := area as PocketItemController
+	pocket_item.focus()
+	focused_item = pocket_item
+	
+func _on_area_exited(area : Area2D):
+	if !(area is PocketItemController):
+		return
+	var pocket_item := area as PocketItemController
+	if focused_item == pocket_item:
+		focused_item.unfocus()
+		focused_item = null
 #endregion
 
 #region Subclasses

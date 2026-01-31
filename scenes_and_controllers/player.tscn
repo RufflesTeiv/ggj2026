@@ -8,6 +8,9 @@
 radius = 56.0
 height = 112.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8faqa"]
+radius = 124.004036
+
 [node name="Player" type="CharacterBody2D" unique_id=1353804991]
 collision_mask = 3
 input_pickable = true
@@ -28,3 +31,10 @@ script = ExtResource("3_8faqa")
 parent_node = NodePath("..")
 radius = 58
 metadata/_custom_type_script = "uid://7beuv6areirk"
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=1074751785]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1105740942]
+shape = SubResource("CircleShape2D_8faqa")
+debug_color = Color(0.7383288, 0.46752292, 0.053314753, 0.41960785)

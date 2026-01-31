@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_lnsng"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_3cdmg"]
 [ext_resource type="PackedScene" uid="uid://buihejyuogjma" path="res://scenes_and_controllers/security.tscn" id="6_lnsng"]
+[ext_resource type="PackedScene" uid="uid://rb68tc6po04u" path="res://scenes_and_controllers/pocket_item.tscn" id="7_8sxnc"]
+[ext_resource type="Resource" uid="uid://cp56ybieqmk4f" path="res://resources/pocket_items/gold_bar.tres" id="8_755kp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apai5"]
 size = Vector2(240, 580)
@@ -50,6 +52,7 @@ shape = SubResource("RectangleShape2D_apai5")
 
 [node name="Camera2D" type="Camera2D" parent="Camera" unique_id=633053321]
 physics_interpolation_mode = 1
+top_level = true
 position = Vector2(1056, 701.5)
 process_callback = 0
 editor_draw_limits = true
@@ -77,3 +80,7 @@ draw_limits = true
 
 [node name="Security" parent="." unique_id=42922147 instance=ExtResource("6_lnsng")]
 position = Vector2(697, 276)
+
+[node name="PocketItem" parent="." unique_id=614172411 instance=ExtResource("7_8sxnc")]
+position = Vector2(1534, 352)
+resource = ExtResource("8_755kp")

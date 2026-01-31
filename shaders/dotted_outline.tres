@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d0rq28npwpt8i"]
+
+[ext_resource type="Shader" uid="uid://dpyc4a7cek4iy" path="res://shaders/dotted_outline.gdshader" id="1_f1r47"]
+
+[resource]
+shader = ExtResource("1_f1r47")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/inner_stroke_thickness = 5.0
+shader_parameter/inner_stroke_opacity = 50.0
+shader_parameter/inside_opacity = 0.0
+shader_parameter/frequency = 15.0
+shader_parameter/phase_speed = 20.0

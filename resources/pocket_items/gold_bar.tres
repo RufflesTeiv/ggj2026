@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PocketItem" format=3 uid="uid://cp56ybieqmk4f"]
+
+[ext_resource type="Script" uid="uid://cn4e0ue55fcpd" path="res://resources/pocket_item.gd" id="1_daegb"]
+[ext_resource type="Texture2D" uid="uid://ktmaay1t37rv" path="res://assets/sprites/roubavel.png" id="2_4hv2e"]
+
+[resource]
+script = ExtResource("1_daegb")
+value = 100
+texture = ExtResource("2_4hv2e")
+metadata/_custom_type_script = "uid://cn4e0ue55fcpd"

@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://on57hhph28en" path="res://assets/sprites/white_pixel.png" id="2_kwv3u"]
 [ext_resource type="Script" uid="uid://bwj137u000thg" path="res://addons/area_of_sight_2d/area_of_sight_2d.gd" id="3_kwv3u"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4d8sj"]
+radius = 173.04623
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6aecc"]
 radius = 56.0
 height = 112.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4d8sj"]
-radius = 173.04623
 
 [node name="Security" type="CharacterBody2D" unique_id=1353804991]
 z_index = 10
@@ -17,16 +17,7 @@ collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_4d8sj")
-
-[node name="Visual" type="Sprite2D" parent="." unique_id=274079850]
-modulate = Color(1, 0, 0, 1)
-scale = Vector2(113.35, 180.25513)
-texture = ExtResource("2_kwv3u")
-offset = Vector2(0, -0.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1352406043]
-position = Vector2(0, -6)
-shape = SubResource("CapsuleShape2D_6aecc")
+rotate_speed = 22.5
 
 [node name="Sight" type="Node2D" parent="." unique_id=1461339138]
 
@@ -52,5 +43,15 @@ show_edge = true
 edge_color = Color(0.31764707, 0.49411765, 1, 0.41960785)
 edge_width = 1.0
 metadata/_custom_type_script = "uid://bwj137u000thg"
+
+[node name="Visual" type="Sprite2D" parent="." unique_id=274079850]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(113.35, 180.25513)
+texture = ExtResource("2_kwv3u")
+offset = Vector2(0, -0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1352406043]
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_6aecc")
 
 [node name="States" type="Node2D" parent="." unique_id=1772989240]
