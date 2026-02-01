@@ -83,6 +83,8 @@ func _on_area_entered(area : Area2D):
 	if !(area is PocketItemController):
 		return
 	var pocket_item := area as PocketItemController
+	if focused_item:
+		focused_item.unfocus()
 	pocket_item.focus()
 	focused_item = pocket_item
 	
