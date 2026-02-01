@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bnh1c81cukhh8" path="res://scenes_and_controllers/player_controller.gd" id="1_6aecc"]
 [ext_resource type="Texture2D" uid="uid://on57hhph28en" path="res://assets/sprites/white_pixel.png" id="1_ubsf2"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="Script" uid="uid://7beuv6areirk" path="res://addons/area_of_sight_2d/area_of_sight_agent_2d.gd" id="3_8faqa"]
+[ext_resource type="AudioStream" uid="uid://b0u1xufgyc4h6" path="res://assets/audio/woosh.mp3" id="4_a0aha"]
+[ext_resource type="AudioStream" uid="uid://2h5fld6gpnpq" path="res://assets/audio/thump.wav" id="5_4hor2"]
+[ext_resource type="Texture2D" uid="uid://dkpqpesq43sp3" path="res://assets/sprites/burglarIdle.png" id="6_0ocgr"]
+>>>>>>> Stashed changes
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6aecc"]
 radius = 56.0
@@ -12,6 +19,7 @@ motion_mode = 1
 script = ExtResource("1_6aecc")
 
 [node name="Visual" type="Sprite2D" parent="." unique_id=274079850]
+visible = false
 scale = Vector2(113.35, 180.25513)
 texture = ExtResource("1_ubsf2")
 offset = Vector2(0, -0.5)
@@ -19,3 +27,35 @@ offset = Vector2(0, -0.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1352406043]
 position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_6aecc")
+<<<<<<< Updated upstream
+=======
+
+[node name="AreaOfSightAgent2D" type="Area2D" parent="." unique_id=557946667 node_paths=PackedStringArray("parent_node")]
+script = ExtResource("3_8faqa")
+parent_node = NodePath("..")
+radius = 58
+metadata/_custom_type_script = "uid://7beuv6areirk"
+
+[node name="AudioPlayers" type="Node" parent="." unique_id=1506986787]
+
+[node name="DashAudioPlayer" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=1303312287]
+unique_name_in_owner = true
+stream = ExtResource("4_a0aha")
+volume_db = 15.0
+
+[node name="PickItemAudioPlayer" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=884539522]
+unique_name_in_owner = true
+stream = ExtResource("5_4hor2")
+volume_db = 6.0
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=1074751785]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1105740942]
+shape = SubResource("CircleShape2D_8faqa")
+debug_color = Color(0.7383288, 0.46752292, 0.053314753, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1301573610]
+position = Vector2(0, -225)
+texture = ExtResource("6_0ocgr")
+>>>>>>> Stashed changes

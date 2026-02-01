@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://rb68tc6po04u"]
+
+[ext_resource type="Script" path="res://scenes_and_controllers/pocket_item_controller.gd" id="1_pwa3c"]
+[ext_resource type="Texture2D" uid="uid://bvr3dh2i6u8io" path="res://assets/sprites/bolo.png" id="2_ngml3"]
+[ext_resource type="Material" uid="uid://d0rq28npwpt8i" path="res://shaders/dotted_outline.tres" id="4_2gcl1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eap34"]
+radius = 120.0
+
+[node name="PocketItem" type="Area2D" unique_id=1572505086]
+script = ExtResource("1_pwa3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=558870305]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_eap34")
+debug_color = Color(0.5819814, 0.38237363, 1, 0.41960785)
+
+[node name="Visuals" type="Node2D" parent="." unique_id=169743154]
+
+[node name="MainSprite" type="Sprite2D" parent="Visuals" unique_id=1884664486]
+unique_name_in_owner = true
+texture = ExtResource("2_ngml3")
+
+[node name="DottedOutline" type="Sprite2D" parent="Visuals" unique_id=723993370]
+unique_name_in_owner = true
+visible = false
+material = ExtResource("4_2gcl1")

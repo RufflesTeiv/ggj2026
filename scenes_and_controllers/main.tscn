@@ -1,7 +1,22 @@
 [gd_scene format=3 uid="uid://50b3rbnx6nvv"]
 
-[ext_resource type="Texture2D" uid="uid://on57hhph28en" path="res://assets/sprites/white_pixel.png" id="1_apai5"]
+[ext_resource type="Texture2D" uid="uid://dbbxyb6lpbsp7" path="res://assets/sprites/Mahogany_Planks_basecolor.png" id="1_8sxnc"]
 [ext_resource type="PackedScene" uid="uid://druptq8xsxyct" path="res://scenes_and_controllers/player.tscn" id="2_v4vid"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_jhph2"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_lnsng"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_3cdmg"]
+[ext_resource type="PackedScene" uid="uid://buihejyuogjma" path="res://scenes_and_controllers/security/security.tscn" id="6_lnsng"]
+[ext_resource type="PackedScene" uid="uid://rb68tc6po04u" path="res://scenes_and_controllers/pocket_item.tscn" id="7_8sxnc"]
+[ext_resource type="Resource" uid="uid://cp56ybieqmk4f" path="res://resources/pocket_items/gold_bar.tres" id="8_755kp"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8sxnc"]
+vertices = PackedVector2Array(-6.4296875, 1099.7266, -33.507813, -22.078125, 998, -6.7265625, 998, 590, 1868.0781, 1091.25, 1358, 590, 1925.7578, 7.0625, 1358, -1.3828125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 4, 5, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-95, -83, 1989, -52, 1980, 1203, -65, 1160)])
+agent_radius = 60.0
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apai5"]
 size = Vector2(240, 580)
@@ -10,8 +25,8 @@ size = Vector2(240, 580)
 
 [node name="Background" type="Sprite2D" parent="." unique_id=779129374]
 modulate = Color(0.40069774, 0.40069774, 0.40069768, 1)
-scale = Vector2(1920, 1080)
-texture = ExtResource("1_apai5")
+scale = Vector2(15.4375, 9.343751)
+texture = ExtResource("1_8sxnc")
 centered = false
 
 [node name="Player" parent="." unique_id=857795947 instance=ExtResource("2_v4vid")]
