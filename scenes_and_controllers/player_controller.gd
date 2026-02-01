@@ -5,14 +5,15 @@ class_name PlayerController
 #endregion
 
 #region Parameters (consts and exportvars)
-@onready var interact_area: Area2D = %InteractArea
+@export var device_id := 0
 @export var max_speed_default := 100.0
 @export var max_speed_running := 150.0
 @export var acceleration := 50.0
 @export var friction := 80.0
+
+@onready var interact_area: Area2D = %InteractArea
 @onready var dash_audio_player: AudioStreamPlayer = %DashAudioPlayer
 @onready var pick_item_audio_player: AudioStreamPlayer = %PickItemAudioPlayer
-
 #endregion
 
 #region Signals
@@ -41,7 +42,9 @@ func _physics_process(_delta):
 	_move(_delta)
 
 func _input(_event: InputEvent):
+	if _event.device != device_id: return
 	_check_pickup(_event)
+	_get_move_direction(_event)
 	_has_started_running(_event)
 	
 #func _exit_tree(): pass
@@ -55,7 +58,7 @@ func _input(_event: InputEvent):
 
 #region Private functions
 func _check_pickup(input : InputEvent):
-	if !Input.is_action_just_pressed("pick_up"): return
+	if !input.is_action_pressed("pick_up"): return
 	if !focused_item: return
 	items_pocketed.append(focused_item.resource)
 	Utility.play_audio_random_pitch(pick_item_audio_player,0.9,1.15)

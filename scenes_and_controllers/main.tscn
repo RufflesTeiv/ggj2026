@@ -35,14 +35,19 @@ y_sort_enabled = true
 
 [node name="Player" parent="Players" unique_id=857795947 instance=ExtResource("2_v4vid")]
 position = Vector2(559, 710)
+device_id = null
 max_speed_default = 500.0
 max_speed_running = 750.0
 acceleration = 100.0
 friction = 100.0
 
 [node name="Player2" parent="Players" unique_id=1353804991 instance=ExtResource("2_v4vid")]
-position = Vector2(1553, 893)
-script = null
+position = Vector2(882, 961)
+device_id = 1
+max_speed_default = 500.0
+max_speed_running = 750.0
+acceleration = 100.0
+friction = 100.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=471399155]
 navigation_polygon = SubResource("NavigationPolygon_8sxnc")
@@ -60,7 +65,7 @@ shape = SubResource("RectangleShape2D_apai5")
 [node name="Camera2D" type="Camera2D" parent="Camera" unique_id=633053321]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(1056, 701.5)
+position = Vector2(559, 610)
 process_callback = 0
 editor_draw_limits = true
 
@@ -71,10 +76,10 @@ script = ExtResource("3_jhph2")
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera" unique_id=671960943 node_paths=PackedStringArray("follow_targets")]
 top_level = true
-position = Vector2(1056, 701.5)
+position = Vector2(559, 610)
 script = ExtResource("4_lnsng")
 follow_mode = 3
-follow_targets = [NodePath("../../Players/Player"), NodePath("../../Players/Player2")]
+follow_targets = [NodePath("../../Players/Player"), NodePath("")]
 tween_resource = SubResource("Resource_8sxnc")
 follow_offset = Vector2(0, -100)
 follow_damping = true
