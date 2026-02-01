@@ -58,10 +58,9 @@ func _check_pickup(input : InputEvent):
 	if !Input.is_action_just_pressed("pick_up"): return
 	if !focused_item: return
 	items_pocketed.append(focused_item.resource)
-	pick_item_audio_player.pitch_scale = randf_range(0.9, 1.15)
-	pick_item_audio_player.play()
+	Utility.play_audio_random_pitch(pick_item_audio_player,0.9,1.15)
 	focused_item.pick_up()
-	
+	Input.start_joy_vibration(0,0.0,1.0,0.15)
 	item_picked.emit(self)
 	
 func _get_max_speed() -> float:
@@ -71,8 +70,7 @@ func _get_max_speed() -> float:
 
 func _has_started_running(event: InputEvent):
 	if Input.is_action_just_pressed("run"):
-		dash_audio_player.pitch_scale = randf_range(0.9, 1.15)
-		dash_audio_player.play()
+		Utility.play_audio_random_pitch(dash_audio_player,0.9,1.15)
 
 func _move(delta:float):
 	var input := Vector2(

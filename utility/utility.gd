@@ -1,5 +1,11 @@
 class_name Utility
 
+#region Audio
+static func play_audio_random_pitch(asp : AudioStreamPlayer, min_pitch := 0.9, max_pitch := 1.1):
+	asp.pitch_scale = randf_range(min_pitch, max_pitch)
+	asp.play()
+#endregion
+
 #region Enums
 static func enum_find_key_string(key:int, keys:Array) -> String:
 	var strings := Utility.enum_keys_to_names(keys)
