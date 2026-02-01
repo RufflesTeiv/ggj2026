@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://buihejyuogjma"]
 
-[ext_resource type="Script" uid="uid://g6r4e0objuby" path="res://scenes_and_controllers/security_controller.gd" id="1_4d8sj"]
+[ext_resource type="Script" uid="uid://g6r4e0objuby" path="res://scenes_and_controllers/security/security_controller.gd" id="1_4d8sj"]
 [ext_resource type="Texture2D" uid="uid://on57hhph28en" path="res://assets/sprites/white_pixel.png" id="2_kwv3u"]
 [ext_resource type="Script" uid="uid://bwj137u000thg" path="res://addons/area_of_sight_2d/area_of_sight_2d.gd" id="3_kwv3u"]
+[ext_resource type="Script" uid="uid://bmh5vq5s5jnkj" path="res://scenes_and_controllers/security/patrol_security_state.gd" id="4_jakkr"]
+[ext_resource type="Script" uid="uid://w0nkupvgt6y3" path="res://scenes_and_controllers/security/pursuing_security_state.gd" id="5_y1p7j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4d8sj"]
 radius = 173.04623
@@ -17,7 +19,6 @@ collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_4d8sj")
-rotate_speed = 22.5
 
 [node name="Sight" type="Node2D" parent="." unique_id=1461339138]
 
@@ -32,6 +33,7 @@ debug_color = Color(0.316951, 0.49222112, 1, 0.41960785)
 
 [node name="AreaOfSight2D" type="Node2D" parent="Sight" unique_id=680342398]
 unique_name_in_owner = true
+visible = false
 script = ExtResource("3_kwv3u")
 radius = 528
 angle_deg = 95
@@ -55,3 +57,17 @@ position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_6aecc")
 
 [node name="States" type="Node2D" parent="." unique_id=1772989240]
+
+[node name="Patrol" type="Node2D" parent="States" unique_id=1868664981]
+unique_name_in_owner = true
+script = ExtResource("4_jakkr")
+
+[node name="Pursuing" type="Node2D" parent="States" unique_id=1631563836]
+unique_name_in_owner = true
+script = ExtResource("5_y1p7j")
+move_speed = 300.0
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=711233669]
+unique_name_in_owner = true
+enabled = false
+collision_mask = 2

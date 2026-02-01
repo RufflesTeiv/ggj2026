@@ -15,6 +15,7 @@ class_name PlayerController
 #endregion
 
 #region Signals
+signal item_picked(player:PlayerController)
 #endregion
 
 #region Variables
@@ -57,6 +58,7 @@ func _check_pickup(input : InputEvent):
 	if !focused_item: return
 	items_pocketed.append(focused_item.resource)
 	focused_item.pick_up()
+	item_picked.emit(self)
 	
 func _get_max_speed() -> float:
 	if Input.is_action_pressed("run"):

@@ -71,6 +71,11 @@ static func clear_connections_from_signal(sig : Signal):
 static func disconnect_from_signal_safe(sig : Signal, cal : Callable):
 	if sig.is_connected(cal):
 		sig.disconnect(cal)
+		
+static func disconect_all_from_signal(sig : Signal):
+	var callable_dictionary := sig.get_connections()
+	for entry in callable_dictionary:
+		sig.disconnect(entry.callable)
 #endregion
 
 #region Strings
