@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://rb68tc6po04u" path="res://scenes_and_controllers/pocket_item.tscn" id="7_8sxnc"]
 [ext_resource type="Resource" uid="uid://cp56ybieqmk4f" path="res://resources/pocket_items/gold_bar.tres" id="8_755kp"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8sxnc"]
+vertices = PackedVector2Array(-6.3984375, 1101.2109, -33.507813, -22.078125, 998, -6.7265625, 998, 590, 1920.4297, 1141.7266, 1358, 590, 1928.5703, 7.1015625, 1358, -1.3828125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 4, 5, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-95, -83, 1989, -52, 1980, 1203, -65, 1160)])
+agent_radius = 60.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apai5"]
 size = Vector2(240, 580)
 
@@ -38,13 +44,14 @@ friction = 100.0
 position = Vector2(1553, 893)
 script = null
 
-[node name="CollisionTest" type="Node2D" parent="." unique_id=2106170654]
-position = Vector2(1178, 238)
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=471399155]
+navigation_polygon = SubResource("NavigationPolygon_8sxnc")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="CollisionTest" unique_id=1421658607]
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D" unique_id=1421658607]
+position = Vector2(1178, 238)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionTest/StaticBody2D" unique_id=1364229012]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D" unique_id=1364229012]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_apai5")
 

@@ -10,8 +10,10 @@ enum State {
 
 #region Parameters (consts and exportvars)
 # States
+@onready var lost_track_state: LostTrackSecurityState = %LostTrack
 @onready var patrol_state: PatrolSecurityState = %Patrol
 @onready var pursuing_state: SecurityState = %Pursuing
+@onready var going_back_state: GoingBackSecurityState = %GoingBack
 #endregion
 
 #region Signals
@@ -19,6 +21,7 @@ enum State {
 
 #region Variables
 var current_state : SecurityState
+var initial_position : Vector2
 #endregion
 
 #region Computed properties
@@ -31,6 +34,7 @@ var current_state : SecurityState
 	
 func _ready():
 	change_state(patrol_state)
+	initial_position = global_position
 	
 #func _process(_delta): pass
 	

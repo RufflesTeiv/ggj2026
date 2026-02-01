@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://bwj137u000thg" path="res://addons/area_of_sight_2d/area_of_sight_2d.gd" id="3_kwv3u"]
 [ext_resource type="Script" uid="uid://bmh5vq5s5jnkj" path="res://scenes_and_controllers/security/patrol_security_state.gd" id="4_jakkr"]
 [ext_resource type="Script" uid="uid://w0nkupvgt6y3" path="res://scenes_and_controllers/security/pursuing_security_state.gd" id="5_y1p7j"]
+[ext_resource type="Script" uid="uid://ca104jg6cexsb" path="res://scenes_and_controllers/security/lost_track_security_state.gd" id="6_k3ea7"]
+[ext_resource type="Script" uid="uid://deruehccn81k4" path="res://scenes_and_controllers/security/going_back_state.gd" id="6_uqjal"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4d8sj"]
 radius = 173.04623
@@ -19,6 +21,11 @@ collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_4d8sj")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1366857752]
+unique_name_in_owner = true
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0.016666412, 1)
 
 [node name="Sight" type="Node2D" parent="." unique_id=1461339138]
 
@@ -67,7 +74,16 @@ unique_name_in_owner = true
 script = ExtResource("5_y1p7j")
 move_speed = 300.0
 
+[node name="LostTrack" type="Node2D" parent="States" unique_id=505173194]
+unique_name_in_owner = true
+script = ExtResource("6_k3ea7")
+
+[node name="GoingBack" type="Node2D" parent="States" unique_id=396435424]
+unique_name_in_owner = true
+script = ExtResource("6_uqjal")
+move_speed = 150.0
+
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=711233669]
 unique_name_in_owner = true
 enabled = false
-collision_mask = 2
+collision_mask = 3
