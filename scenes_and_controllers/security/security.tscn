@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://w0nkupvgt6y3" path="res://scenes_and_controllers/security/pursuing_security_state.gd" id="5_y1p7j"]
 [ext_resource type="Script" uid="uid://ca104jg6cexsb" path="res://scenes_and_controllers/security/lost_track_security_state.gd" id="6_k3ea7"]
 [ext_resource type="Script" uid="uid://deruehccn81k4" path="res://scenes_and_controllers/security/going_back_state.gd" id="6_uqjal"]
+[ext_resource type="Texture2D" uid="uid://7f84f2yxkcs1" path="res://assets/sprites/securityIdle.png" id="8_v0rpa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4d8sj"]
 radius = 173.04623
@@ -54,6 +55,7 @@ edge_width = 1.0
 metadata/_custom_type_script = "uid://bwj137u000thg"
 
 [node name="Visual" type="Sprite2D" parent="." unique_id=274079850]
+visible = false
 modulate = Color(1, 0, 0, 1)
 scale = Vector2(113.35, 180.25513)
 texture = ExtResource("2_kwv3u")
@@ -87,3 +89,7 @@ move_speed = 150.0
 unique_name_in_owner = true
 enabled = false
 collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=889173198]
+position = Vector2(-19, -221)
+texture = ExtResource("8_v0rpa")
