@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://on57hhph28en" path="res://assets/sprites/white_pixel.png" id="1_ubsf2"]
 [ext_resource type="Script" uid="uid://7beuv6areirk" path="res://addons/area_of_sight_2d/area_of_sight_agent_2d.gd" id="3_8faqa"]
 [ext_resource type="AudioStream" uid="uid://b0u1xufgyc4h6" path="res://assets/audio/woosh.mp3" id="4_a0aha"]
+[ext_resource type="AudioStream" uid="uid://2h5fld6gpnpq" path="res://assets/audio/thump.wav" id="5_4hor2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6aecc"]
 radius = 56.0
@@ -39,6 +40,11 @@ metadata/_custom_type_script = "uid://7beuv6areirk"
 unique_name_in_owner = true
 stream = ExtResource("4_a0aha")
 volume_db = 15.0
+
+[node name="PickItemAudioPlayer" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=884539522]
+unique_name_in_owner = true
+stream = ExtResource("5_4hor2")
+volume_db = 6.0
 
 [node name="InteractArea" type="Area2D" parent="." unique_id=1074751785]
 unique_name_in_owner = true

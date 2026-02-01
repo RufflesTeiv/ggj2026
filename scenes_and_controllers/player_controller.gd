@@ -11,6 +11,7 @@ class_name PlayerController
 @export var acceleration := 50.0
 @export var friction := 80.0
 @onready var dash_audio_player: AudioStreamPlayer = %DashAudioPlayer
+@onready var pick_item_audio_player: AudioStreamPlayer = %PickItemAudioPlayer
 
 #endregion
 
@@ -57,7 +58,10 @@ func _check_pickup(input : InputEvent):
 	if !Input.is_action_just_pressed("pick_up"): return
 	if !focused_item: return
 	items_pocketed.append(focused_item.resource)
+	pick_item_audio_player.pitch_scale = randf_range(0.9, 1.15)
+	pick_item_audio_player.play()
 	focused_item.pick_up()
+	
 	item_picked.emit(self)
 	
 func _get_max_speed() -> float:
