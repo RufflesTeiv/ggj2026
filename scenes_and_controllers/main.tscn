@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_jhph2"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_lnsng"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_3cdmg"]
+[ext_resource type="Resource" uid="uid://ccw5rah3xmwb0" path="res://resources/pocket_items/cake.tres" id="6_755kp"]
 [ext_resource type="PackedScene" uid="uid://buihejyuogjma" path="res://scenes_and_controllers/security/security.tscn" id="6_lnsng"]
 [ext_resource type="PackedScene" uid="uid://rb68tc6po04u" path="res://scenes_and_controllers/pocket_item.tscn" id="7_8sxnc"]
 [ext_resource type="Resource" uid="uid://cp56ybieqmk4f" path="res://resources/pocket_items/gold_bar.tres" id="8_755kp"]
@@ -26,28 +27,43 @@ y_sort_enabled = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=779129374]
 modulate = Color(0.40069774, 0.40069774, 0.40069768, 1)
+z_index = -20
 scale = Vector2(1920, 1080)
 texture = ExtResource("1_apai5")
 centered = false
 
-[node name="Players" type="Node2D" parent="." unique_id=246838195]
+[node name="Entities" type="Node2D" parent="." unique_id=828313532]
 y_sort_enabled = true
 
-[node name="Player" parent="Players" unique_id=857795947 instance=ExtResource("2_v4vid")]
+[node name="Players" type="Node2D" parent="Entities" unique_id=246838195]
+y_sort_enabled = true
+
+[node name="Player" parent="Entities/Players" unique_id=857795947 instance=ExtResource("2_v4vid")]
 position = Vector2(559, 710)
-device_id = null
 max_speed_default = 500.0
 max_speed_running = 750.0
 acceleration = 100.0
 friction = 100.0
 
-[node name="Player2" parent="Players" unique_id=1353804991 instance=ExtResource("2_v4vid")]
+[node name="Player2" parent="Entities/Players" unique_id=1353804991 instance=ExtResource("2_v4vid")]
 position = Vector2(882, 961)
 device_id = 1
 max_speed_default = 500.0
 max_speed_running = 750.0
 acceleration = 100.0
 friction = 100.0
+
+[node name="Security" parent="Entities" unique_id=42922147 instance=ExtResource("6_lnsng")]
+y_sort_enabled = true
+position = Vector2(221, 276)
+
+[node name="PocketItem" parent="Entities" unique_id=614172411 instance=ExtResource("7_8sxnc")]
+position = Vector2(601, 225)
+resource = ExtResource("8_755kp")
+
+[node name="PocketItem2" parent="Entities" unique_id=1572505086 instance=ExtResource("7_8sxnc")]
+position = Vector2(364, 493)
+resource = ExtResource("6_755kp")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=471399155]
 navigation_polygon = SubResource("NavigationPolygon_8sxnc")
@@ -65,7 +81,7 @@ shape = SubResource("RectangleShape2D_apai5")
 [node name="Camera2D" type="Camera2D" parent="Camera" unique_id=633053321]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(559, 610)
+position = Vector2(720.5, 735.5)
 process_callback = 0
 editor_draw_limits = true
 
@@ -76,10 +92,10 @@ script = ExtResource("3_jhph2")
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera" unique_id=671960943 node_paths=PackedStringArray("follow_targets")]
 top_level = true
-position = Vector2(559, 610)
+position = Vector2(720.5, 735.5)
 script = ExtResource("4_lnsng")
 follow_mode = 3
-follow_targets = [NodePath("../../Players/Player"), NodePath("")]
+follow_targets = [NodePath("../../Entities/Players/Player"), NodePath("../../Entities/Players/Player2")]
 tween_resource = SubResource("Resource_8sxnc")
 follow_offset = Vector2(0, -100)
 follow_damping = true
@@ -89,14 +105,3 @@ auto_zoom_min = 0.5
 auto_zoom_max = 1.0
 auto_zoom_margin = Vector4(400, 400, 400, 400)
 draw_limits = true
-
-[node name="Security" parent="." unique_id=42922147 instance=ExtResource("6_lnsng")]
-position = Vector2(221, 276)
-
-[node name="PocketItem" parent="." unique_id=614172411 instance=ExtResource("7_8sxnc")]
-position = Vector2(601, 225)
-resource = ExtResource("8_755kp")
-
-[node name="PocketItem2" parent="." unique_id=1572505086 instance=ExtResource("7_8sxnc")]
-position = Vector2(364, 493)
-resource = ExtResource("8_755kp")

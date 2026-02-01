@@ -70,6 +70,8 @@ func _get_max_speed() -> float:
 	if Input.is_action_pressed("run"):
 		return max_speed_running
 	return max_speed_default
+	
+func _get_move_direction(event: InputEvent): pass
 
 func _has_started_running(event: InputEvent):
 	if Input.is_action_just_pressed("run"):

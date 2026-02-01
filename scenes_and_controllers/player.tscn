@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://7beuv6areirk" path="res://addons/area_of_sight_2d/area_of_sight_agent_2d.gd" id="3_8faqa"]
 [ext_resource type="AudioStream" uid="uid://b0u1xufgyc4h6" path="res://assets/audio/woosh.mp3" id="4_a0aha"]
 [ext_resource type="AudioStream" uid="uid://2h5fld6gpnpq" path="res://assets/audio/thump.wav" id="5_4hor2"]
+[ext_resource type="Texture2D" uid="uid://dkpqpesq43sp3" path="res://assets/sprites/burglarIdle.png" id="6_0ocgr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6aecc"]
 radius = 56.0
@@ -20,6 +21,7 @@ motion_mode = 1
 script = ExtResource("1_6aecc")
 
 [node name="Visual" type="Sprite2D" parent="." unique_id=274079850]
+visible = false
 scale = Vector2(113.35, 180.25513)
 texture = ExtResource("1_ubsf2")
 offset = Vector2(0, -0.5)
@@ -52,3 +54,7 @@ unique_name_in_owner = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1105740942]
 shape = SubResource("CircleShape2D_8faqa")
 debug_color = Color(0.7383288, 0.46752292, 0.053314753, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=529967773]
+texture = ExtResource("6_0ocgr")
+offset = Vector2(0, -224)

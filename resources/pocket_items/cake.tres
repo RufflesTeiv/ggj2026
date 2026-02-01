@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PocketItem" format=3 uid="uid://ccw5rah3xmwb0"]
+
+[ext_resource type="Script" uid="uid://cn4e0ue55fcpd" path="res://resources/pocket_item.gd" id="1_e5bl5"]
+[ext_resource type="Texture2D" uid="uid://bvr3dh2i6u8io" path="res://assets/sprites/bolo.png" id="2_e5bl5"]
+
+[resource]
+script = ExtResource("1_e5bl5")
+value = 50
+texture = ExtResource("2_e5bl5")
+metadata/_custom_type_script = "uid://cn4e0ue55fcpd"
